@@ -1,0 +1,38 @@
+h3 {
+    color: blue;
+}
+
+h4 {
+    color: red;
+}
+
+.tituloNome {
+    color: greenyellow;
+}
+
+#subtitulo {
+    color: goldenrod;
+}
+
+img[src="https://media-exp1.licdn.com/dms/image/C4D03AQGlLGpo5uT4Aw/profile-displayphoto-shrink_800_800/0/1650595504320?e=1661990400&v=beta&t=j9rNmE3Gsm2KFS2oBjRD9wK8wGhr74NMxsXIySVR7UI"] {
+    align-items: ce;
+    width: 200px;
+}
+
+img[alt=""] {
+    width: 200px;
+}
+
+input[type="text"] {
+    background-color: whitesmoke;
+}
+
+#infopessoal {
+    background-color: grey;
+    text-align: center;
+}
+
+.paises {
+    background-color: rgb(100, 100, 155);
+    text-align: center;
+}
