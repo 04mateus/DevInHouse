@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.titulo {
+    color: #0ba80b;
+    text-align: center;
+}
+
+.logo-ifsc {
+    display: flex;
+}
+
+nav {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+    list-style: none;
+}
+
+nav li a {
+    padding: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: rgb(11, 168, 11);
+}
+
+.imagem-destaque {
+    width: 50%;
+}
+
+.imagem-destaque img {
+    width: 80%;
+    padding: 20px;
+    margin-left: 30px;
+}
+
+.logo-ifsc img {
+    width: 100px;
+    margin-left: 230px;
+}
+
+#destaque {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-destaque {
+    width: 50%;
+}
+
+#eventos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.evento {
+    background-color: #0ba80b;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    height: 250px;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.evento img {
+    height: 50%;
+    position: cover;
+
+}
+
+footer {
+    background-color: #0ba80b;
+}
+
+.icon {
+    width: 50px;
+}
+
+#informacoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* #contato {
+    width: 50%;
+    justify-content: end;
+}
+
+.contato {
+    width: 50%;
+    justify-content: end;
+}
+
+.sobre {
+    width: 50%;
+}
+
+.form-contact {
+    width: 50%;
+    justify-content: end;
+}
+
+.form-group {
+    display: flex;
+    width: 50%;
+    justify-content: right;
+} */
+
+.sobre-contato {
+    flex-direction: row;
+    justify-content: center;
+}
