@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BancoDev</title>
+</head>
+
+<body onload="calculaValor()">
+    <header>
+        <h1>Salgado</h1>
+    </header>
+    <main>
+
+        <select name="contas" id="exibirContas">
+
+        </select>
+        <br>
+        <br>
+
+
+        <input type="number" id="valor" name="num01" placeholder="Valor">
+        <br>
+        <br>
+
+        <select name="opcoes" id="saqueDeposito">
+            <option value="sacar" id="saque">Sacar</option>
+            <option value="depositar" id="deposito">Depósito</option>
+        </select>
+        <br>
+        <br>
+
+
+        <div>
+            <input type="text" id="password" placeholder="Senha">
+        </div>
+        <br>
+        <button onclick="calculaValor()">Confirmar</button>
+
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
