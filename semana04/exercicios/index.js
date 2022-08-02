@@ -1,45 +1,129 @@
 const contasClientes = [
     {
+        id: 0,
+        nome: "Matheus Vicente",
+        saldo: 1000.0,
+        senha: "1111",
+    },
+    {
         id: 1,
-        nome: 'Marcelo Fernandes',
-        saldo: 500,
-        password: "",
+        nome: "Maria Luzia",
+        saldo: 1555.0,
+        senha: "2222",
     },
     {
         id: 2,
-        nome: 'Carla Marcelino Cardoso',
-        saldo: 3000,
-        password: "",
-    },
-    {
-        id: 3,
-        nome: 'Bruno Pedro Gonçalves',
-        saldo: 5000,
-        password: "",
+        nome: "Nicolas Raupp",
+        saldo: 1700.0,
+        senha: "3333",
     },
 ];
 
-const calculaValor = function () {
+// Preencher lista de nomes
+let select = document.getElementById("contas");
+function preencherNomes(list) {
+    let contas = list
+        .map((list) => `<option value=${list.id}>${list.nome}</option>`)
+        .join("\n");
+    //teste
+    //console.log(contas) teste
+    select.innerHTML = contas;
+}
+window.onload(preencherNomes(contasClientes));
 
-    let client = document.getElementById("exibirContas")
-    let valor = document.getElementById("valor").value || 0
-    let BankAccount = document.getElementById("saqueDeposito").value
-    let password = document.getElementById("password").value
-    let newValue = Number(valor)
-    contasClientes.forEach(i => {
-        let option = new Option(i.nome, i.id)
-        client.options[client.options.length] = option
+//depositar
+function depositar(valor, contaCliente) {
+    if (valor <= 0) {
+        alert(`Valor invalido`);
+    } else if (isNaN(valor)) {
+        alert(`Valor invalido`);
+    } else {
+        var saldoAntigo = contaCliente.saldo;
+        parseFloat((contaCliente.saldo += valor));
+        // formatar valor
+        var valorFormatado = valor.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        });
+        var contaClienteSaldoFormatado = contaCliente.saldo.toLocaleString(
+            "pt-br",
+            { style: "currency", currency: "BRL" }
+        );
+        var saldoAntigoFormatado = saldoAntigo.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        });
+        var exibir = `Nome do cliente: <strong>${contaCliente.nome}</strong> <br/> Deposito realizado no valor: <strong>${valorFormatado}</strong> <br/> Saldo atual: <strong>${contaClienteSaldoFormatado}</strong> <br/> Saldo anterior:<strong>${saldoAntigoFormatado}</strong>`;
+        operacao.innerHTML = exibir;
+        //teste
+        console.log(contaCliente.saldo, saldoAntigo);
+    }
+}
 
+//sacar
+function sacar(valor, contaCliente) {
+    if (valor > contaCliente.saldo) {
+        alert(`Saldo insuficiente! Saldo Atual ${contaCliente.saldo}`);
+    } else if (isNaN(valor)) {
+        alert(`Valor invalido`);
+    } else {
+        var saldoAntigo = contaCliente.saldo;
+        parseFloat((contaCliente.saldo -= valor));
+        // formatar valor
+        var valorFormatado = valor.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        });
+        var contaClienteSaldoFormatado = contaCliente.saldo.toLocaleString(
+            "pt-br",
+            { style: "currency", currency: "BRL" }
+        );
+        var saldoAntigoFormatado = saldoAntigo.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        });
+        var exibir = `Nome do cliente: <strong>${contaCliente.nome}</strong> <br/> Saque realizado no valor: <strong>${valorFormatado}</strong> <br/> Saldo atual: <strong>${contaClienteSaldoFormatado}</strong> <br/> Saldo anterior:<strong>${saldoAntigoFormatado}</strong>`;
+        operacao.innerHTML = exibir;
+        //teste
+        console.log(contaCliente.saldo, saldoAntigo);
+    }
+}
+// comparar
+function comparar(opcao, valor, contaCliente) {
+    if (opcao === "sacar") {
+        console.log("saque selecionado");
+        sacar(valor, contaCliente);
+    } else if (opcao === "depositar") {
+        console.log("Depositar selecionado");
+        depositar(valor, contaCliente);
+    }
+}
+// validacao
+function senha(password, contaCliente, opcao, valor) {
+    let senha2 = document.getElementById("senha");
+    if (contaCliente.senha === password) {
+        comparar(opcao, valor, contaCliente);
+        senha2.innerHTML = ` Senha Correta`;
+        document.getElementById("senha").style.color = "green";
+        document.getElementById("senha").contentWindow.location.reload(true);
+    } else {
+        senha2.innerHTML = ` Senha Incorreta`;
+        document.getElementById("senha").style.color = "red";
+        document.getElementById("senha").contentWindow.location.reload(true);
+    }
+}
 
-
-        if (client.value == i.id && BankAccount == "sacar") {
-            item.password = password
-            return console.log(i.saldo - newValue)
-        }
-        if (client.value == i.id && BankAccount == "depositar") {
-            item.password = password
-            return console.log(i.saldo + newValue)
-        }
-        new Set(client)
-    })
+function captura() {
+    let id = parseInt(document.getElementById("contas").value);
+    let password = document.getElementById("password").value;
+    let valor = parseFloat(document.getElementById("valor").value);
+    let opcao = document.getElementById("opcao").value;
+    let operacao = document.getElementById("operacao");
+    let contaCliente = contasClientes.find(function (contaCliente) {
+        return contaCliente.id === id;
+    });
+    senha(password, contaCliente, opcao, valor);
+    // comparar(opcao, valor, contaCliente);
+    //teste
+    console.log(id, valor, opcao, operacao, contaCliente);
 }

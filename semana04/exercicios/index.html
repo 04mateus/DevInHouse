@@ -1,48 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>BancoDev</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.25" />
+    <title>DEVinBank</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-<body onload="calculaValor()">
-    <header>
-        <h1>Salgado</h1>
-    </header>
-    <main>
-
-        <select name="contas" id="exibirContas">
-
-        </select>
-        <br>
-        <br>
-
-
-        <input type="number" id="valor" name="num01" placeholder="Valor">
-        <br>
-        <br>
-
-        <select name="opcoes" id="saqueDeposito">
-            <option value="sacar" id="saque">Sacar</option>
-            <option value="depositar" id="deposito">Depósito</option>
-        </select>
-        <br>
-        <br>
-
-
-        <div>
-            <input type="text" id="password" placeholder="Senha">
-        </div>
-        <br>
-        <button onclick="calculaValor()">Confirmar</button>
-
-    </main>
-
-    <script src="index.js"></script>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><img src="assets/img/devin.png" /></li>
+        </ul>
+    </div>
+    <div id="formulario">
+        <form action="">
+            <h1>Conta bancaria</h1>
+            <p>Selecione uma conta:</p>
+            <select name="contas" id="contas">
+                <!-- apenas placeholder, preenchimento feito com js -->
+                <option value="null">null</option>
+            </select><br />
+            <p>Digite sua senha:</p>
+            <input type="password" id="password" placeholder="Senha" /> <br />
+            <p id="senha"></p>
+            <p>Escolha o valor da operação:</p>
+            <input type="text" id="valor" placeholder="Valor" /> <br /><br />
+            <p>Escolha a operação:</p>
+            <select name="opcao" id="opcao">
+                <option value="sacar">Sacar</option>
+                <option value="depositar">Depositar</option>
+            </select><br /><br />
+            <button onclick="captura()" value="Submit" type="submit" form="formulario" id="btn">
+                Confirmar
+            </button>
+            <p id="operacao"></p>
+        </form>
+    </div>
+    <div id="exercicios">
+        <h2> Outros exercicios da semana</h2>
+        <ul>
+            <li><a href="Ex8/index.html">Exercicio 8</a></li>
+            <li><a href="Ex9/index.html">Exercicio 9</a></li>
+            <li><a href="Ex10/index.html">Exercicio 10</a></li>
+        </ul>
+    </div>
+    <footer><small>&copy; Copyright | Feito por Matheus Vicente</small></footer>
 </body>
+<script src="index.js"></script>
 
 </html>
